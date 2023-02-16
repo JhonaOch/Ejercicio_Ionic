@@ -1,0 +1,64 @@
+<ion-content class="vh-100" [fullscreen]="true">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center ">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="formLogin!" (ngSubmit)="login()">
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-bold mb-0 me-3">Welcome</p>
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-linkedin-in"></i>
+            </button>
+          </div>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Or</p>
+          </div>
+
+
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form3Example3">Username: </label>
+            <input type="name" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid username" formControlName="user" />
+            <label class="text-danger labelError"
+              *ngIf="formLogin!.controls['user'].hasError('required') && formLogin!.controls['user'].touched">
+              • Los campos no pueden estar vacíos
+            </label>
+            <label class="text-danger labelError" *ngIf="formLogin!.hasError('pattern', 'user')">
+              • El campo del nombre de usuario solo puede tener letras
+            </label>
+          </div>
+
+          <div class="form-outline mb-3">
+            <label class="form-label" for="form3Example4">Email: </label>
+            <input type="email" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter a valid email" formControlName="email" />
+            <label class="text-danger labelError"
+              *ngIf="formLogin!.controls['email'].hasError('required') && formLogin!.controls['email'].touched">
+              • Los campos no pueden estar vacíos
+            </label>
+
+            <label class="text-danger labelError" *ngIf="formLogin!.hasError('pattern', 'email')">
+              • El campo del email debe corresponder a un email valido
+            </label>
+
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

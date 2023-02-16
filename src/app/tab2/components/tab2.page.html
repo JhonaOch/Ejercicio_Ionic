@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-app-bar [title]="titlePage"></app-app-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ul class="list-group list-group-light">
+    <li class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let item of users let i = index">
+      <div class="d-flex align-items-center">
+        <img src="https://mdbootstrap.com/img/new/avatars/{{i+1}}.jpg" alt="" style="width: 45px; height: 45px"
+          class="rounded-circle" />
+        <div class="ms-3">
+          <p class="fw-bold mb-1">{{item?.name??"Username"}}</p>
+          <p class="text-muted mb-0">{{item?.email??"email@gmail.com"}}</p>
+        </div>
+      </div>
+      <button (click)="addFavorite(item)" class="btn btn-secondary btn-rounded">❤</button>
+    </li>
+  </ul>
+</ion-content>
